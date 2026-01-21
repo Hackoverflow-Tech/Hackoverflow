@@ -264,31 +264,16 @@ const DateCards = () => {
           margin-bottom: 20px;
         }
 
-        .card-arrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          font-family: 'Poppins', sans-serif;
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: var(--card-color);
-          opacity: 0;
-          transform: translateX(-10px);
-          transition: all 0.3s ease;
-        }
+        
 
-        .date-card:hover .card-arrow {
+        .date-card:hover {
           opacity: 1;
           transform: translateX(0);
         }
 
-        .arrow-icon {
-          width: 20px;
-          height: 20px;
-          transition: transform 0.3s ease;
-        }
+        
 
-        .date-card:hover .arrow-icon {
+        .date-card:hover 
           transform: translateX(4px);
         }
 
@@ -353,12 +338,6 @@ const DateCards = () => {
                 <h3 className="card-title">{item.title}</h3>
                 <p className="card-desc">{item.desc}</p>
 
-                <div className="card-arrow" style={{ color: item.color }}>
-                  <span>Learn More</span>
-                  <svg className="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
               </div>
             ))}
           </div>
