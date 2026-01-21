@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const MAP_CENTER: [number, number] = [73.1762426, 18.8934723];
-
 const About = () => {
   const mapElement = useRef(null);
   const [isMapVisible, setIsMapVisible] = useState(false);
@@ -216,18 +214,15 @@ const About = () => {
           position: relative;
           border-radius: 20px;
           overflow: hidden;
-          box-shadow: 
-            0 10px 40px rgba(0, 0, 0, 0.6),
-            0 0 0 1px rgba(231, 88, 41, 0.2);
+          /* Removed overly dark shadows */
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(231, 88, 41, 0.2);
           transition: all 0.5s ease;
           height: 400px;
-          background: rgba(0, 0, 0, 0.3);
+          background: #ffffff; /* Standard map background */
         }
 
         .map-container:hover {
-          box-shadow: 
-            0 15px 50px rgba(0, 0, 0, 0.7),
-            0 0 0 2px rgba(231, 88, 41, 0.4);
+          box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7), 0 0 0 2px rgba(231, 88, 41, 0.4);
           transform: translateY(-5px);
         }
 
@@ -237,11 +232,12 @@ const About = () => {
           opacity: 0;
           transform: translateY(20px);
           transition: all 0.6s ease;
-          background: #1a1a1a;
+          background: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
           border-radius: 20px;
+          overflow: hidden;
         }
 
         .maps-card.visible {
@@ -249,16 +245,12 @@ const About = () => {
           transform: translateY(0);
         }
 
-        .map-placeholder {
-          text-align: center;
-          color: rgba(255, 255, 255, 0.5);
-          padding: 2rem;
-        }
-
-        .map-placeholder-icon {
-          font-size: 3rem;
-          margin-bottom: 1rem;
-          opacity: 0.6;
+        /* --- MAP IFRAME --- */
+        .maps-iframe {
+          width: 100%;
+          height: 100%;
+          border: 0;
+          /* No filters here - Map is as it is */
         }
 
         .map-overlay {
@@ -271,6 +263,7 @@ const About = () => {
           border-radius: 12px;
           border: 1px solid rgba(231, 88, 41, 0.3);
           z-index: 10;
+          pointer-events: none;
         }
 
         .map-overlay-title {
@@ -406,9 +399,9 @@ const About = () => {
             <span className="section-badge">About Us</span>
             <h1 className="about-title">Pillai HOC College of Engineering & Technology</h1>
             <p className="about-description">
-              A premier institution fostering innovation and excellence in engineering education. 
-              Our state-of-the-art campus provides students with world-class facilities, 
-              experienced faculty, and an environment that nurtures creativity, critical thinking, 
+              A premier institution fostering innovation and excellence in engineering education.
+              Our state-of-the-art campus provides students with world-class facilities,
+              experienced faculty, and an environment that nurtures creativity, critical thinking,
               and technological advancement.
             </p>
 
@@ -433,27 +426,33 @@ const About = () => {
             <h2 className="map-section-title">Visit Our Campus</h2>
             <div className="map-wrapper">
               <div className="map-container">
+                {/* Floating Info Card */}
                 <div className="map-overlay">
                   <div className="map-overlay-title">PHCET Campus</div>
                   <div className="map-overlay-address">
-                    Rasayani, Raigad<br/>
+                    Rasayani, Raigad<br />
                     Maharashtra, India
                   </div>
                 </div>
+
+                {/* Google Map with Location Marker */}
                 <div
                   ref={mapElement}
                   className={`maps-card ${isMapVisible ? 'visible' : ''}`}
                 >
-                  <div className="map-placeholder">
-                    <div className="map-placeholder-icon">📍</div>
-                    <p>Interactive map displays here</p>
-                  </div>
+                  <iframe
+                    src="https://maps.google.com/maps?q=Pillai+HOC+College+of+Engineering+and+Technology&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    className="maps-iframe"
+                    allowFullScreen={true}
+                    loading="lazy"
+                    title="Pillai HOC College Map"
+                  ></iframe>
                 </div>
               </div>
 
               <div className="maps-button-wrapper">
                 <a
-                  href="https://www.google.com/maps/place/Pillai+HOC+College+Of+Engineering+%26+Technology/"
+                  href="https://goo.gl/maps/1Q1Q1Q1Q1Q1Q1Q1Q1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="map-link"
