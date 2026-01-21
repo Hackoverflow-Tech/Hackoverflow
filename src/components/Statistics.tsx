@@ -24,7 +24,7 @@ const Statistics = () => {
       participants: number;
       projects: number;
       hours: number;
-      mentors: number;
+      states: number;
     };
     categories: Array<{
       name: string;
@@ -36,20 +36,16 @@ const Statistics = () => {
       label: string;
       value: string;
     }>;
-    demographics: {
-      colleges: number;
-      cities: number;
-      prizePool: string;
-    };
+
   }> = {
     "1.0": {
       year: "2023",
       title: "HackOverflow 1.0",
       overview: {
-        participants: 250,
-        projects: 45,
+        participants: 200,
+        projects: 50,
         hours: 36,
-        mentors: 15
+        states: 10
       },
       categories: [
         { name: "Web Development", value: 35, color: "#FCB216" },
@@ -64,20 +60,15 @@ const Statistics = () => {
         { icon: "🎯", label: "Completion Rate", value: "92%" },
         { icon: "⭐", label: "Satisfaction", value: "4.8/5" }
       ],
-      demographics: {
-        colleges: 12,
-        cities: 8,
-        prizePool: "₹50,000"
-      }
     },
     "2.0": {
       year: "2024",
       title: "HackOverflow 2.0",
       overview: {
-        participants: 400,
-        projects: 68,
+        participants: 200,
+        projects: 55,
         hours: 36,
-        mentors: 25
+        states: 12
       },
       categories: [
         { name: "Web Development", value: 30, color: "#FCB216" },
@@ -92,20 +83,15 @@ const Statistics = () => {
         { icon: "🎯", label: "Completion Rate", value: "95%" },
         { icon: "⭐", label: "Satisfaction", value: "4.9/5" }
       ],
-      demographics: {
-        colleges: 20,
-        cities: 15,
-        prizePool: "₹1,00,000"
-      }
     },
     "3.0": {
       year: "2025",
       title: "HackOverflow 3.0",
       overview: {
-        participants: 500,
-        projects: 85,
+        participants: 250,
+        projects: 60,
         hours: 36,
-        mentors: 30
+        states: 15
       },
       categories: [
         { name: "Web Development", value: 28, color: "#FCB216" },
@@ -120,11 +106,6 @@ const Statistics = () => {
         { icon: "🎯", label: "Completion Rate", value: "97%" },
         { icon: "⭐", label: "Satisfaction", value: "5.0/5" }
       ],
-      demographics: {
-        colleges: 35,
-        cities: 22,
-        prizePool: "₹2,00,000"
-      }
     }
   };
 
@@ -397,11 +378,6 @@ const Statistics = () => {
           color: #FFFFFF;
         }
 
-        .demographics-section {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1.2rem;
-        }
 
         .demo-card {
           background: rgba(255, 255, 255, 0.03);
@@ -445,9 +421,6 @@ const Statistics = () => {
             grid-template-columns: 1fr;
           }
 
-          .demographics-section {
-            grid-template-columns: repeat(3, 1fr);
-          }
         }
 
         @media (max-width: 768px) {
@@ -490,10 +463,6 @@ const Statistics = () => {
             grid-template-columns: 1fr;
           }
 
-          .demographics-section {
-            grid-template-columns: 1fr;
-            gap: 0.8rem;
-          }
         }
 
         @media (max-width: 480px) {
@@ -515,13 +484,13 @@ const Statistics = () => {
         }
       `}</style>
 
-      <div 
-        className="orb-glow orb-1" 
+      <div
+        className="orb-glow orb-1"
         style={{
           transform: `translate(${cursorPos.x * 0.02}px, ${cursorPos.y * 0.02}px)`
         }}
       />
-      <div 
+      <div
         className="orb-glow orb-2"
         style={{
           transform: `translate(${-cursorPos.x * 0.02}px, ${-cursorPos.y * 0.02}px)`
@@ -572,8 +541,8 @@ const Statistics = () => {
             <span className="overview-label">Hours</span>
           </div>
           <div className="overview-card">
-            <span className="overview-number">{currentData.overview.mentors}</span>
-            <span className="overview-label">Mentors</span>
+            <span className="overview-number">{currentData.overview.states}</span>
+            <span className="overview-label">states</span>
           </div>
         </div>
 
@@ -583,8 +552,8 @@ const Statistics = () => {
             {currentData.categories.map((category, index) => (
               <div key={index} className="category-item">
                 <div className="category-info">
-                  <div 
-                    className="category-color" 
+                  <div
+                    className="category-color"
                     style={{ backgroundColor: category.color }}
                   />
                   <span className="category-name">{category.name}</span>
@@ -610,20 +579,6 @@ const Statistics = () => {
           </div>
         </div>
 
-        <div className="demographics-section">
-          <div className="demo-card">
-            <span className="demo-value">{currentData.demographics.colleges}</span>
-            <span className="demo-label">Colleges</span>
-          </div>
-          <div className="demo-card">
-            <span className="demo-value">{currentData.demographics.cities}</span>
-            <span className="demo-label">Cities</span>
-          </div>
-          <div className="demo-card">
-            <span className="demo-value">{currentData.demographics.prizePool}</span>
-            <span className="demo-label">Prize Pool</span>
-          </div>
-        </div>
       </div>
     </section>
   );
