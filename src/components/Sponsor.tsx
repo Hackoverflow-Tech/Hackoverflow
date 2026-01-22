@@ -1,499 +1,346 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import SectionHeader from "./SectionHeader";
 
-const SponsorUs = () => {
-    const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-    const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
+/* ---------------- TYPES ---------------- */
+interface SponsorItem {
+  id: number;
+  name?: string;
+  image: string;
+  link: string;
+  effect?: string;
+  SubSponsorcategory?: string;
+}
 
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            setCursorPos({ x: e.clientX, y: e.clientY });
-        };
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+/* ---------------- COMPONENT ---------------- */
+const SponsorUs: React.FC = () => {
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
 
+  /* ---------------- DATA ---------------- */
+  const ourSponsors: SponsorItem[] = [
+    { id: 1, name: "Blue Star", image: "/images/Sponsors/Blue Star tab.png", link: "#", effect: "fade-up", SubSponsorcategory: "Co-Powered By" },
+    { id: 2, name: "Devfolio", image: "/images/Sponsors/devfolioWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
+    { id: 3, name: "Polygon", image: "/images/Sponsors/polygonWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
+    { id: 4, name: "IMFS", image: "/images/Sponsors/imfsWhite.webp", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
+    { id: 5, name: "AM Study", image: "/images/Sponsors/AMstudy.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
+    { id: 6, name: "Aptech Panvel", image: "/images/Sponsors/apptech.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
+    { id: 7, name: "Beeceptor", image: "/images/Sponsors/beeceptorWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
+    { id: 8, name: "Replit", image: "/images/Sponsors/replitWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Silver Sponsor" },
+    { id: 9, name: "Solana", image: "/images/Sponsors/solanaWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Silver Sponsor" },
+    { id: 10, name: "FileCoin", image: "/images/Sponsors/filecoinWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Silver Sponsor" }
+  ];
 
-    const benefits = [
-        {
-            id: 1,
-            icon: "🎯",
-            title: "Brand Visibility",
-            desc: "Get your brand in front of 500+ tech enthusiasts and innovators",
-            color: "#FCB216"
-        },
-        {
-            id: 2,
-            icon: "🤝",
-            title: "Talent Pipeline",
-            desc: "Connect with top engineering talent and future tech leaders",
-            color: "#E85D24"
-        },
-        {
-            id: 3,
-            icon: "📢",
-            title: "Marketing Reach",
-            desc: "Extensive promotion across social media and campus networks",
-            color: "#D91B57"
-        },
-        {
-            id: 4,
-            icon: "🚀",
-            title: "Innovation Access",
-            desc: "First look at cutting-edge projects and breakthrough ideas",
-            color: "#63205F"
-        },
-        {
-            id: 5,
-            icon: "🌟",
-            title: "Community Impact",
-            desc: "Support the next generation of innovators and problem solvers",
-            color: "#FCB216"
-        },
-        {
-            id: 6,
-            icon: "📊",
-            title: "Thought Leadership",
-            desc: "Position your brand as a leader in tech and innovation",
-            color: "#E85D24"
+  const pastSponsors: SponsorItem[] = [
+    { id: 1, image: "/images/Sponsors/devfolioWhite.png", link: "#" },
+    { id: 2, image: "/images/Sponsors/polygonWhite.png", link: "#" },
+    { id: 3, image: "/images/Sponsors/imfsWhite.webp", link: "#" },
+    { id: 4, image: "/images/Sponsors/AMstudy.png", link: "#" },
+    { id: 5, image: "/images/Sponsors/apptech.png", link: "#" },
+    { id: 6, image: "/images/Sponsors/BSidesMumbaiWhite.png", link: "#" },
+    { id: 7, image: "/images/Sponsors/bobbleWhite.png", link: "#" },
+    { id: 8, image: "/images/Sponsors/BlueStarSponsor.png", link: "#" },
+    { id: 9, image: "/images/Sponsors/parnika.png", link: "#" },
+    { id: 10, image: "/images/Sponsors/quillbotWhite.png", link: "#" },
+    { id: 11, image: "/images/Sponsors/unloxblack.png", link: "#" },
+    { id: 12, image: "/images/Sponsors/tvsWhite.png", link: "#" },
+    { id: 14, image: "/images/Sponsors/replitWhite.png", link: "#" },
+    { id: 15, image: "/images/Sponsors/solanaWhite.png", link: "#" },
+  ];
+
+  const benefits = [
+    { id: 1, icon: "🎯", title: "Brand Visibility", desc: "Get your brand in front of 500+ innovators.", color: "#FCB216" },
+    { id: 2, icon: "🤝", title: "Talent Pipeline", desc: "Connect with top engineering talent.", color: "#E85D24" },
+    { id: 3, icon: "📢", title: "Marketing Reach", desc: "Wide exposure across campuses & socials.", color: "#D91B57" },
+    { id: 4, icon: "🚀", title: "Innovation Access", desc: "Early access to breakthrough ideas.", color: "#63205F" },
+    { id: 5, icon: "🌟", title: "Community Impact", desc: "Support the next generation of builders.", color: "#FCB216" },
+    { id: 6, icon: "📊", title: "Thought Leadership", desc: "Position your brand as a tech leader.", color: "#E85D24" }
+  ];
+
+  /* ---------------- EFFECTS ---------------- */
+  useEffect(() => {
+    AOS.init({ duration: 900 });
+    const move = (e: MouseEvent) => setCursorPos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+
+  return (
+    <section className="sponsor-main-section">
+      <style>{`
+        html, body {
+          overflow-x: hidden;
         }
-    ];
 
-
-    return (
-        <section className="sponsor-section">
-            <style>{`
         * {
-          margin: 0;
-          padding: 0;
           box-sizing: border-box;
         }
 
-        .sponsor-section {
-          min-height: 100vh;
+        .sponsor-main-section {
           background: #0F0F0F;
           position: relative;
           overflow: hidden;
+          padding: 4rem 0;
           font-family: 'Poppins', sans-serif;
-          padding: 3rem 0;
         }
 
+        /* ORBS */
+        .orb-glow {
+          position: absolute;
+          width: 500px;
+          height: 500px;
+          border-radius: 50%;
+          filter: blur(130px);
+          opacity: 0.12;
+          pointer-events: none;
+        }
+        .orb-1 { top: -150px; left: -150px; background: #E85D24; }
+        .orb-2 { bottom: -150px; right: -150px; background: #63205F; }
 
         .sponsor-container {
           max-width: 1400px;
           margin: 0 auto;
-          padding: 0 2rem;
+          padding: 0 1rem;
           position: relative;
-          z-index: 1;
+          z-index: 2;
         }
 
+        /* CTA */
         .cta-buttons {
           display: flex;
-          gap: 1.2rem;
           justify-content: center;
+          gap: 1rem;
           flex-wrap: wrap;
+          margin-top: 2rem;
         }
 
         .cta-btn {
           padding: 1rem 2.5rem;
-          border-radius: 12px;
-          font-size: 1rem;
+          border-radius: 50px;
           font-weight: 700;
-          cursor: pointer;
-          transition: all 0.4s ease;
           text-decoration: none;
-          display: inline-block;
-          font-family: 'Poppins', sans-serif;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .cta-btn::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 0;
-          height: 0;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.2);
-          transform: translate(-50%, -50%);
-          transition: width 0.6s, height 0.6s;
-        }
-
-        .cta-btn:hover::before {
-          width: 300px;
-          height: 300px;
+          transition: 0.3s;
         }
 
         .cta-primary {
-          background: linear-gradient(90deg, #FCB216 0%, #E85D24 50%, #D91B57 100%);
-          border: none;
-          color: #FFFFFF;
-        }
-
-        .cta-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 30px rgba(252, 178, 22, 0.3);
+          background: linear-gradient(90deg,#FCB216,#E85D24,#D91B57);
+          color: #fff;
         }
 
         .cta-secondary {
-          background: rgba(255, 255, 255, 0.05);
-          border: 2px solid rgba(255, 255, 255, 0.2);
-          color: #FFFFFF;
+          border: 2px solid #E85D24;
+          color: #fff;
+          background: rgba(255,255,255,0.05);
         }
 
-        .cta-secondary:hover {
-          background: rgba(255, 255, 255, 0.1);
-          border-color: #FCB216;
-          transform: translateY(-3px);
-        }
-
-        .stats-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1.5rem;
-          margin-bottom: 4rem;
-        }
-
-        .stat-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 14px;
-          padding: 2rem;
-          text-align: center;
-          backdrop-filter: blur(10px);
-          transition: all 0.4s ease;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .stat-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 3px;
-          background: linear-gradient(90deg, #FCB216, #E85D24, #D91B57);
-          transform: scaleX(0);
-          transition: transform 0.4s ease;
-        }
-
-        .stat-card:hover::before {
-          transform: scaleX(1);
-        }
-
-        .stat-card:hover {
-          background: rgba(255, 255, 255, 0.05);
-          transform: translateY(-5px);
-          border-color: rgba(252, 178, 22, 0.3);
-        }
-
-        .stat-icon {
-          font-size: 2.5rem;
-          margin-bottom: 0.8rem;
-        }
-
-        .stat-number {
-          font-size: 2.5rem;
-          font-weight: 800;
-          background: linear-gradient(135deg, #FCB216, #E85D24);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          display: block;
-          margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-          font-size: 0.9rem;
-          color: #B0B0B0;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-
+        /* CENTERED SECTION TITLE */
         .section-title {
-          font-size: 2.5rem;
-          font-weight: 800;
           text-align: center;
-          margin-bottom: 3rem;
-          color: #FFFFFF;
+          font-size: 2.4rem;
+          font-weight: 800;
+          margin: 4rem auto 3rem;
+          color: #fff;
+          max-width: 720px;
         }
 
+        /* BENEFITS GRID — FIXED */
         .benefits-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 1.5rem;
-          margin-bottom: 5rem;
-        }
-
-        .benefit-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 14px;
-          padding: 2rem;
-          backdrop-filter: blur(10px);
-          transition: all 0.4s ease;
-          cursor: pointer;
-        }
-
-        .benefit-card:hover {
-          background: rgba(255, 255, 255, 0.05);
-          transform: translateY(-8px);
-          border-color: rgba(252, 178, 22, 0.3);
-        }
-
-        .benefit-icon {
-          font-size: 3rem;
-          margin-bottom: 1rem;
-          display: block;
-        }
-
-        .benefit-title {
-          font-size: 1.3rem;
-          font-weight: 700;
-          color: #FFFFFF;
-          margin-bottom: 0.8rem;
-        }
-
-        .benefit-desc {
-          font-size: 0.95rem;
-          color: #B0B0B0;
-          line-height: 1.6;
-        }
-
-        .tiers-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
           margin-bottom: 4rem;
         }
 
-        .tier-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 14px;
-          padding: 2.5rem;
-          backdrop-filter: blur(10px);
-          transition: all 0.4s ease;
-          position: relative;
-          overflow: hidden;
+        .benefit-card {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 16px;
+          padding: 2rem;
+          transition: 0.3s;
         }
 
-        .tier-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: var(--tier-gradient);
+        .benefit-card:hover {
+          transform: translateY(-6px);
+          background: rgba(255,255,255,0.06);
         }
 
-        .tier-card:hover {
-          transform: translateY(-8px);
-          background: rgba(255, 255, 255, 0.05);
-          border-color: rgba(252, 178, 22, 0.4);
-        }
+        .benefit-icon { font-size: 2.5rem; }
+        .benefit-title { color: #fff; font-weight: 700; margin: 0.8rem 0; }
+        .benefit-desc { color: #B0B0B0; font-size: 0.95rem; }
 
-        .tier-name {
-          font-size: 1.8rem;
-          font-weight: 800;
-          background: var(--tier-gradient);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin-bottom: 1.5rem;
-        }
-
-        .tier-features {
-          list-style: none;
-        }
-
-        .tier-feature {
-          padding: 0.8rem 0;
-          color: #E0E0E0;
-          font-size: 0.95rem;
-          display: flex;
-          align-items: center;
-          gap: 0.8rem;
-        }
-
-        .tier-feature::before {
-          content: '✓';
-          color: #FCB216;
-          font-weight: 700;
-          font-size: 1.2rem;
-        }
-
-        .contact-section {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          padding: 3rem;
-          text-align: center;
-          backdrop-filter: blur(10px);
-        }
-
-        .contact-title {
-          font-size: 2rem;
-          font-weight: 800;
-          color: #FFFFFF;
-          margin-bottom: 1rem;
-        }
-
-        .contact-desc {
-          font-size: 1.1rem;
-          color: #B0B0B0;
-          margin-bottom: 2rem;
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
-          .stats-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
           .benefits-grid {
             grid-template-columns: repeat(2, 1fr);
-          }
-
-          .tiers-grid {
-            grid-template-columns: 1fr;
           }
         }
 
         @media (max-width: 768px) {
-          .sponsor-section {
-            padding: 1.5rem 0;
-          }
-
-          .sponsor-container {
-            padding: 0 1rem;
-          }
-
-          .hero-title {
-            font-size: 2.5rem;
-            letter-spacing: -1px;
-          }
-
-          .hero-subtitle {
-            font-size: 1rem;
-          }
-
-          .stats-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-          }
-
-          .stat-card {
-            padding: 1.5rem 1rem;
-          }
-
-          .stat-icon {
-            font-size: 2rem;
-          }
-
-          .stat-number {
-            font-size: 2rem;
+          .section-title {
+            max-width: 100%;
+            font-size: 1.8rem;
           }
 
           .benefits-grid {
             grid-template-columns: 1fr;
-            gap: 1rem;
-          }
-
-          .section-title {
-            font-size: 1.8rem;
-          }
-
-          .contact-section {
-            padding: 2rem 1.5rem;
-          }
-
-          .cta-buttons {
-            flex-direction: column;
-          }
-
-          .cta-btn {
-            width: 100%;
           }
         }
 
-        @media (max-width: 480px) {
-          .hero-title {
-            font-size: 2rem;
-          }
+        /* SPONSORS */
+        .simple-header {
+          text-align: center;
+          font-size: 2rem;
+          font-weight: 800;
+          margin: 4rem 0 2rem;
+          color: #fff;
+        }
 
-          .stats-grid {
-            grid-template-columns: 1fr;
-          }
+        .our-sponsors-grid {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
 
-          .stat-number {
-            font-size: 1.8rem;
-          }
+        .our-sponsor-card {
+          width: min(220px, 45%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
 
-          .tier-card {
-            padding: 1.5rem;
+        .sponsor-role-label {
+          font-size: 0.8rem;
+          color: #fff;
+          margin-bottom: 6px;
+          text-transform: uppercase;
+        }
+
+        .sponsor-card-box {
+          width: 100%;
+          height: 110px;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem;
+        }
+
+        .sponsor-card-box img {
+          max-width: 90%;
+          max-height: 90%;
+          object-fit: contain;
+        }
+
+        /* Past sponsor flowting row */
+        .marquee-container {
+          overflow: hidden;
+          width: 100%;
+          margin-top: 2rem;
+          position: relative;
+        }
+
+        .marquee-track {
+          display: flex;
+          gap: 20px;
+          width: max-content;
+          animation: marquee-scroll 18s linear infinite; /* 🔥 faster */
+        }
+
+        .marquee-item {
+          width: 220px;
+          flex-shrink: 0;
+        }
+
+        /* FULL WIDTH SCROLL */
+        @keyframes marquee-scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
           }
         }
+
+        /* Pause on hover (nice UX) */
+        .marquee-container:hover .marquee-track {
+          animation-play-state: paused;
+        }
+
       `}</style>
 
+      <div className="orb-glow orb-1" style={{ transform: `translate(${cursorPos.x * 0.02}px, ${cursorPos.y * 0.02}px)` }} />
+      <div className="orb-glow orb-2" style={{ transform: `translate(${-cursorPos.x * 0.02}px, ${-cursorPos.y * 0.02}px)` }} />
+
+      <div className="sponsor-container">
+        <SectionHeader
+          badge="Partnership Opportunity"
+          title="Want to"
+          gradientText="Sponsor Us?"
+          subtitle="Reach hundreds of students and innovators by partnering with HackOverflow 4.0."
+        />
+
+        <div className="cta-buttons">
+          <a className="cta-btn cta-primary" href="/docs/SponsorBrochure.pdf" download>
+            Download Brochure
+          </a>
+          <a className="cta-btn cta-secondary" href="mailto:admin@hackoverflow4.tech">
+            Email Us
+          </a>
+        </div>
+
+        <h2 className="section-title">
+          Why <span className="gradient-text">Partner With Us?</span>
+        </h2>
+
+        <div className="benefits-grid">
+          {benefits.map((b) => (
             <div
-                className="orb-glow orb-1"
-                style={{
-                    transform: `translate(${cursorPos.x * 0.02}px, ${cursorPos.y * 0.02}px)`
-                }}
-            />
-            <div
-                className="orb-glow orb-2"
-                style={{
-                    transform: `translate(${-cursorPos.x * 0.02}px, ${-cursorPos.y * 0.02}px)`
-                }}
-            />
-
-            <div className="sponsor-container">
-                <div style={{ textAlign: "center", marginBottom: "4rem", padding: "3rem 0" }}>
-                    <SectionHeader
-                        badge="Partnership Opportunity"
-                        title="Want to"
-                        gradientText="Sponsor Us?"
-                        subtitle="Reach hundreds of students and potential customers by sponsoring HackOverflow 4.0. Partner with us to inspire innovation and connect with the next generation of tech leaders."
-                    />
-                    <div className="cta-buttons">
-                        <a href="/docs/SponsorBrochure.pdf" download="HackOverflow_4.0_Sponsorship_Brochure.pdf" className="cta-btn cta-primary" style={{ position: 'relative', zIndex: 1 }}>
-                            <span style={{ position: 'relative', zIndex: 1 }}>Download Brochure</span>
-                        </a>
-                        <a href="mailto:admin@hackoverflow4.tech" className="cta-btn cta-secondary" style={{ position: 'relative', zIndex: 1 }}>
-                            <span style={{ position: 'relative', zIndex: 1 }}>Email Us</span>
-                        </a>
-                    </div>
-                </div>
-
-
-                {/* Benefits Section */}
-                <h2 className="section-title">
-                    Why <span className="gradient-text">Partner With Us?</span>
-                </h2>
-                <div className="benefits-grid">
-                    {benefits.map((benefit) => (
-                        <div
-                            key={benefit.id}
-                            className="benefit-card"
-                            onMouseEnter={() => setHoveredBenefit(benefit.id)}
-                            onMouseLeave={() => setHoveredBenefit(null)}
-                            style={{
-                                borderColor: hoveredBenefit === benefit.id ? benefit.color : 'rgba(255, 255, 255, 0.1)'
-                            }}
-                        >
-                            <span className="benefit-icon">{benefit.icon}</span>
-                            <h3 className="benefit-title">{benefit.title}</h3>
-                            <p className="benefit-desc">{benefit.desc}</p>
-                        </div>
-                    ))}
-                </div>
-
+              key={b.id}
+              className="benefit-card"
+              style={{ borderColor: hoveredBenefit === b.id ? b.color : undefined }}
+              onMouseEnter={() => setHoveredBenefit(b.id)}
+              onMouseLeave={() => setHoveredBenefit(null)}
+            >
+              <span className="benefit-icon">{b.icon}</span>
+              <h3 className="benefit-title">{b.title}</h3>
+              <p className="benefit-desc">{b.desc}</p>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+
+        {/* <h2 className="simple-header">Our Sponsors</h2>
+        <div className="our-sponsors-grid">
+          {ourSponsors.map((s) => (
+            <div key={s.id} className="our-sponsor-card" data-aos={s.effect}>
+              <div className="sponsor-role-label">{s.SubSponsorcategory}</div>
+              <div className="sponsor-card-box">
+                <img src={s.image} alt={s.name} />
+              </div>
+            </div>
+          ))}
+        </div> */}
+
+        <h2 className="simple-header">Past Sponsors</h2>
+        <div className="marquee-container">
+          <div className="marquee-track">
+            {[...pastSponsors, ...pastSponsors].map((s, i) => (
+              <div key={i} className="marquee-item">
+                <div className="sponsor-card-box">
+                  <img src={s.image} alt="Sponsor" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default SponsorUs;

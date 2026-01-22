@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { label } from "three/tsl";
 
 const navLinks = [
   { id: "home", label: "Home" },
@@ -7,6 +8,7 @@ const navLinks = [
   { id: "stats", label: "Statistics" },
   { id: "schedule", label: "Schedule" },
   { id: "sponsors", label: "Sponsors" },
+  { id: "teams", label: "Team" },
   { id: "about", label: "About" }
 ];
 
