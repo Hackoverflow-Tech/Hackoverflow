@@ -1,107 +1,69 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { GridScan } from "@/components/Gridscan";
 
 export default function Hero() {
-    const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-    /* ---------------- PARTICLE FIELD ---------------- */
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
+  /* ---------------- SCROLL SCALE EFFECT ---------------- */
+  useEffect(() => {
+    const onScroll = () => {
+      const scrolled = window.scrollY;
+      document.documentElement.style.setProperty(
+        "--hero-scale",
+        `${Math.max(0.88, 1 - scrolled / 1200)}`
+      );
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
+  return (
+    <section className="hero-root">
+      {/* GRIDSCAN BACKGROUND */}
+      <div className="absolute inset-0 z-0">
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#6b5593"
+          gridScale={0.1}
+          scanColor="#cb8a44"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
+        />
+      </div>
 
-        const resize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-        resize();
-        window.addEventListener("resize", resize);
+      {/* HERO CONTENT */}
+      <div className="hero-content">
+        <span className="hero-badge">National Level Hackathon</span>
 
-        const particles = Array.from({ length: 90 }).map(() => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 1.8 + 0.5,
-            dx: (Math.random() - 0.5) * 0.4,
-            dy: (Math.random() - 0.5) * 0.4
-        }));
+        <h1 className="hero-title">
+          Hack<span className="gradient-text">Overflow</span>
+        </h1>
 
-        const animate = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        <div className="hero-version">4.0</div>
 
-            particles.forEach(p => {
-                p.x += p.dx;
-                p.y += p.dy;
+        <p className="hero-tagline">
+          A 36 hour sprint of innovation, code, and collaboration.
+        </p>
 
-                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        <div className="hero-actions">
+          <a
+            href="https://unstop.com/hackathons/hackoverflow-40-pillai-hoc-college-of-engineering-technology-phcet-maharashtra-1613166"
+            className="primary-cta"
+          >
+            Register Now
+          </a>
+          <a href="#gallery" className="secondary-cta">
+            Explore Event
+          </a>
+        </div>
+      </div>
 
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(231,88,41,0.35)";
-                ctx.fill();
-            });
-
-            requestAnimationFrame(animate);
-        };
-
-        animate();
-        return () => window.removeEventListener("resize", resize);
-    }, []);
-
-
-    useEffect(() => {
-        const onScroll = () => {
-            const scrolled = window.scrollY;
-            document.documentElement.style.setProperty(
-                "--hero-scale",
-                `${Math.max(0.88, 1 - scrolled / 1200)}`
-            );
-        };
-        window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
-
-    return (
-        <section className="hero-root">
-            <canvas ref={canvasRef} className="particle-canvas" />
-
-            <div className="hero-content">
-                {/* BADGE – matches Gallery / Dates */}
-                <span className="hero-badge">
-                    National Level Hackathon
-                </span>
-
-                {/* TITLE */}
-                <h1 className="hero-title">
-                    Hack<span className="gradient-text">Overflow</span>
-                </h1>
-
-                {/* VERSION */}
-                <div className="hero-version">4.0</div>
-
-                {/* TAGLINE */}
-                <p className="hero-tagline">
-                    A 36 hour sprint of innovation, code, and collaboration.
-                </p>
-
-                {/* CTA */}
-                <div className="hero-actions">
-                    <a
-                        href="https://unstop.com/hackathons/hackoverflow-40-pillai-hoc-college-of-engineering-technology-phcet-maharashtra-1613166"
-                        className="primary-cta"
-                    >
-                        Register Now
-                    </a>
-                    <a href="#gallery" className="secondary-cta">
-                        Explore Event
-                    </a>
-                </div>
-            </div>
-
-            <style>{`
+      <style>{`
         :root {
           --hero-scale: 1;
         }
@@ -117,12 +79,6 @@ export default function Hero() {
           font-family: 'Poppins', sans-serif;
         }
 
-        .particle-canvas {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-        }
-
         .hero-content {
           position: relative;
           z-index: 3;
@@ -133,25 +89,20 @@ export default function Hero() {
         }
 
         .hero-badge {
-  display: inline-block;
-  margin-bottom: 18px;
-
-  /* Responsive sizing */
-  padding: clamp(6px, 1.2vw, 10px) clamp(14px, 3vw, 26px);
-  font-size: clamp(0.6rem, 1.6vw, 0.75rem);
-  letter-spacing: clamp(0.18em, 0.8vw, 0.35em);
-
-  background: rgba(231, 88, 41, 0.1);
-  border: 1px solid rgba(231, 88, 41, 0.35);
-  border-radius: 999px;
-
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #E85D24;
-  backdrop-filter: blur(10px);
-  white-space: nowrap;
-}
-
+          display: inline-block;
+          margin-bottom: 18px;
+          padding: clamp(6px, 1.2vw, 10px) clamp(14px, 3vw, 26px);
+          font-size: clamp(0.6rem, 1.6vw, 0.75rem);
+          letter-spacing: clamp(0.18em, 0.8vw, 0.35em);
+          background: rgba(231, 88, 41, 0.1);
+          border: 1px solid rgba(231, 88, 41, 0.35);
+          border-radius: 999px;
+          font-weight: 600;
+          text-transform: uppercase;
+          color: #E85D24;
+          backdrop-filter: blur(10px);
+          white-space: nowrap;
+        }
 
         .hero-title {
           font-size: clamp(3rem, 7vw, 6rem);
@@ -170,7 +121,6 @@ export default function Hero() {
           );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          background-clip: text;
           margin-left: 0.15em;
         }
 
@@ -179,11 +129,7 @@ export default function Hero() {
           font-size: 2.6rem;
           font-weight: 800;
           letter-spacing: 0.1em;
-          background: linear-gradient(
-            90deg,
-            #FCB216,
-            #E85D24
-          );
+          background: linear-gradient(90deg, #FCB216, #E85D24);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -241,6 +187,6 @@ export default function Hero() {
           }
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 }
