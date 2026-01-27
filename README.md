@@ -327,14 +327,12 @@ This project is proprietary and confidential. Unauthorized copying, distribution
 - **Next.js Team** – For the incredible React framework
 - **Tailwind Labs** – For the utility-first CSS framework
 - **Framer** – For the animation library
+- **[react-bits](https://github.com/DavidHDev/react-bits)** – Gridscan background component (camera features removed)
 - **PHCET** – For hosting and organizing HackOverflow 4.0
 - **Parth Bhoir** – System engineering and server configuration (hosted on home server)
 - **Nirav Thakur** – Design and frontend UI development
 - **Chetan Jadhav** – Stable build creation and maintenance
 - **All Contributors** – For their time and expertise
-
-
-
 
 ---
 
