@@ -32,20 +32,20 @@ const SponsorUs: React.FC = () => {
   ];
 
   const pastSponsors: SponsorItem[] = [
-    { id: 1, image: "/images/Sponsors/devfolioWhite.png", link: "#" },
-    { id: 2, image: "/images/Sponsors/polygonWhite.png", link: "#" },
-    { id: 3, image: "/images/Sponsors/imfsWhite.webp", link: "#" },
-    { id: 4, image: "/images/Sponsors/AMstudy.png", link: "#" },
-    { id: 5, image: "/images/Sponsors/apptech.png", link: "#" },
-    { id: 6, image: "/images/Sponsors/BSidesMumbaiWhite.png", link: "#" },
-    { id: 7, image: "/images/Sponsors/bobbleWhite.png", link: "#" },
-    { id: 8, image: "/images/Sponsors/BlueStarSponsor.png", link: "#" },
-    { id: 9, image: "/images/Sponsors/parnika.png", link: "#" },
-    { id: 10, image: "/images/Sponsors/quillbotWhite.png", link: "#" },
-    { id: 11, image: "/images/Sponsors/unloxblack.png", link: "#" },
-    { id: 12, image: "/images/Sponsors/tvsWhite.png", link: "#" },
-    { id: 14, image: "/images/Sponsors/replitWhite.png", link: "#" },
-    { id: 15, image: "/images/Sponsors/solanaWhite.png", link: "#" },
+    { id: 1, image: "/images/Sponsors/devfolioWhite.png", link: "https://devfolio.co/" },
+    { id: 2, image: "/images/Sponsors/polygonWhite.png", link: "https://polygon.technology/" },
+    { id: 3, image: "/images/Sponsors/imfsWhite.webp", link: "https://www.imfs.co.in/" },
+    { id: 4, image: "/images/Sponsors/AMstudy.png", link: "https://amstudyabroad.com/" },
+    { id: 5, image: "/images/Sponsors/apptech.png", link: "https://www.aptechlearning.com/" },
+    { id: 6, image: "/images/Sponsors/BSidesMumbaiWhite.png", link: "https://www.bsidesmumbai.in/" },
+    { id: 7, image: "/images/Sponsors/bobbleWhite.png", link: "https://www.bobble.ai/" },
+    { id: 8, image: "/images/Sponsors/BlueStarSponsor.png", link: "https://www.bluestarindia.com/" },
+    { id: 9, image: "/images/Sponsors/parnika.png", link: "https://theparnika.com/" },
+    { id: 10, image: "/images/Sponsors/quillbotWhite.png", link: "https://quillbot.com/" },
+    { id: 11, image: "/images/Sponsors/unloxblack.png", link: "https://www.unlox.com/" },
+    { id: 12, image: "/images/Sponsors/tvsWhite.png", link: "https://www.tvsmotor.com/" },
+    { id: 14, image: "/images/Sponsors/replitWhite.png", link: "https://replit.com/" },
+    { id: 15, image: "/images/Sponsors/solanaWhite.png", link: "https://solana.com/" },
   ];
 
   const benefits = [
