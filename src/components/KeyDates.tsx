@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, CSSProperties } from 'react';
 
 interface TimelineItem {
   id: number;
@@ -41,9 +41,9 @@ const DateCards = () => {
     },
     {
       id: 2,
-      date: "Jan 30, 2026",
+      date: "Jan 31, 2026",
       month: "JAN",
-      day: "30",
+      day: "31",
       title: "Registration Ends",
       desc: "Last day to submit your team details",
       color: "#E85D24"
@@ -320,7 +320,7 @@ const DateCards = () => {
               <div
                 key={item.id}
                 className="date-card"
-                style={{ '--card-color': item.color } as React.CSSProperties}
+                style={{ '--card-color': item.color } as CSSProperties}
                 onMouseEnter={() => setHoveredCard(item.id)}
                 onMouseLeave={() => setHoveredCard(null)}
               >

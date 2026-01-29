@@ -19,7 +19,6 @@ const Statistics = () => {
       ],
       achievements: [
         { icon: "🏆", label: "Winning Teams", value: "3 Teams" },
-        { icon: "👥", label: "Registrations", value: "1000+" },
         { icon: "💡", label: "Ideas Pitched", value: "50+" },
         { icon: "🎯", label: "Completion Rate", value: "92%" },
         { icon: "⭐", label: "Satisfaction", value: "4.8 / 5" },
@@ -44,8 +43,7 @@ const Statistics = () => {
       ],
       achievements: [
         { icon: "🏆", label: "Winning Teams", value: "3 Teams" },
-        { icon: "👥", label: "Registrations", value: "1000+" },
-        { icon: "💡", label: "Ideas Pitched", value: "50+" },
+        { icon: "", label: "Ideas Pitched", value: "50+" },
         { icon: "🎯", label: "Completion Rate", value: "95%" },
         { icon: "⭐", label: "Satisfaction", value: "4.9 / 5" },
       ],
