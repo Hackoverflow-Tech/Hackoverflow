@@ -264,7 +264,7 @@ const Navbar = () => {
 
           <a
             className="brochure"
-            href="/Docs/PublicityBrochure.pdf"
+            href="/Docs/publicityBrochure.pdf"
             download="HackOverflow Brochure.pdf"
             target="_blank"
             rel="noopener noreferrer"

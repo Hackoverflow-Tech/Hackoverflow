@@ -69,6 +69,7 @@ const Schedule = () => {
       judging: "#e75829",
       submission: "#e75829",
       end: "#FFD47C",
+      Banner: "#F2A03D",
     };
     return colors[type];
   };
