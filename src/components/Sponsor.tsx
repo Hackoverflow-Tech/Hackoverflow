@@ -21,12 +21,13 @@ const SponsorUs: React.FC = () => {
 
   // --- DATA ---
   const ourSponsors: SponsorItem[] = [
-    { id: 1, name: "aecc_global", image: "/images/Sponsors/aecc_global.png", link: "#", effect: "fade-up", SubSponsorcategory: "Co-Powered By" },
-    { id: 2, name: "osen", image: "/images/Sponsors/osen.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
-    { id: 3, name: "imperial", image: "/images/Sponsors/imperial.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
-    { id: 4, name: "IMFS", image: "/images/Sponsors/imfsWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
-    { id: 5, name: "Sumago", image: "/images/Sponsors/sumago.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
-    { id: 6, name: "Upthrust", image: "/images/Sponsors/upthrust.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
+    { id: 1, name: "aecc_global", image: "/images/Sponsors/aeccWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
+     { id: 4, name: "IMFS", image: "/images/Sponsors/imfsWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
+    { id: 5, name: "Sumago", image: "/images/Sponsors/sumagoSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
+    { id: 2, name: "osen", image: "/images/Sponsors/osen_demo.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
+    { id: 3, name: "imperial", image: "/images/Sponsors/imperialSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
+   
+    { id: 6, name: "Upthrust", image: "/images/Sponsors/upthrustSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gaming Partner" },
   ];
 
   const pastSponsors: SponsorItem[] = [
