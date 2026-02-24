@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 HackOverflow 4.0 – Official Website
+# HackOverflow 4.0 – Official Website
 
 ### A Next.js powered hackathon website with stunning animations and modern design
 
@@ -300,7 +300,7 @@ We welcome contributions! To contribute:
 
 ---
 
-## 📬 Contact & Support
+## Contact & Support
 
 **HackOverflow 4.0 Organizing Team**
 
