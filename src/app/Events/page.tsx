@@ -88,7 +88,7 @@ export default function Events() {
             duration: "3 Hours",
             location: "Engineering Reception, Pillai HOC Campus",
             difficulty: "Beginner",
-            participants: "Counting...",
+            participants: "90",
             benefits: [
                 "3D modeling basics",
                 "Animation fundamentals",
@@ -107,7 +107,7 @@ export default function Events() {
             id: 6,
             date: "25 February, 2026",
             type: "Educational",
-            title: "Study Aboard",
+            title: "AECC Study Abroad Session",
             description: "Fun technical learning event.",
             fullDescription: "Creative technical event with logical and academic challenges.",
             duration: "3 Hours",
