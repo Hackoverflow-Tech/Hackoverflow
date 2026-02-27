@@ -19,7 +19,6 @@ const Themes = () => {
       },
       { threshold: 0.1 }
     );
-
     const section = document.querySelector(".themes-section");
     if (section) observer.observe(section);
 
@@ -28,7 +27,7 @@ const Themes = () => {
 
   // COUNTDOWN LOGIC
   useEffect(() => {
-    const TARGET_DATE = new Date("2026-03-01T19:00:00");
+    const TARGET_DATE = new Date("2026-02-28T18:30:00");
 
     const updateCountdown = () => {
       const now = new Date().getTime();
