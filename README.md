@@ -52,6 +52,7 @@
 - `Sponsor` – Partner and sponsor logos
 - `Statistics` – Live participant/project stats
 - `Teams` – Organizer and team member profiles
+- `Events` – Dedicated event showcase page with image slidehow  and registration system 
 - `Footer` – Contact info and social links
 
 ### 🛠️ Technical Highlights
@@ -121,7 +122,9 @@ HackOverflow-Website/
 │   │   ├── favicon.ico       # Site favicon
 │   │   ├── globals.css       # Global styles
 │   │   ├── layout.tsx        # Root layout wrapper
-│   │   └── page.tsx          # Homepage
+│   │   ├── page.tsx          # Homepage
+│   │   └── Events/           # Events page route (App Router)
+│   │       └── page.tsx      # Events page with slideshow & registration
 │   └── components/
 │       ├── About.tsx         # About section
 │       ├── FAQ.tsx           # Frequently asked questions
@@ -146,9 +149,6 @@ HackOverflow-Website/
 ├── postcss.config.mjs        # PostCSS configuration
 ├── README.md                 # This file
 └── tsconfig.json             # TypeScript configuration
-```
-
----
 
 ## 🎨 Color Palette
 
