@@ -13,11 +13,13 @@ import Statistics from "@/components/Statistics";
 import Sponsor from "@/components/Sponsor";
 import Teams from "@/components/Teams";
 import Hero from "@/components/Hero";
+import JudgesMentors from "@/components/JudgesMentors";
 
 export default function Home() {
   return (
     <>
       <section id="home">
+
         <Hero />
       </section>
 
@@ -36,8 +38,12 @@ export default function Home() {
       <section id="schedule">
         <Schedule />
       </section>
+      <section id="judges">
+        <JudgesMentors />
+      </section>
 
       <KeyDates />
+
 
       <section id="theme">
         <Theme />
