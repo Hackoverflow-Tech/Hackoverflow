@@ -45,7 +45,7 @@ export default function JudgesMentors() {
             name: 'ANAND MEHTA',
             role: 'Judge',
             description: 'Senior Specialist Finops, NASDAQ AWS Community Builder',
-            image: '/images/judges&Mentor/judges2.png',
+            image: '/images/judges&Mentor/Judges2.png',
             socials: { linkedin: 'https://www.linkedin.com/in/anandmehta' }
         },
         {
@@ -61,7 +61,7 @@ export default function JudgesMentors() {
             name: 'NIKITA GANDHI',
             role: 'Judge',
             description: 'Technical Program Manager, Google',
-            image: '/images/judges&Mentor/judges4.png',
+            image: '/images/judges&Mentor/Judges4.png',
             socials: { linkedin: 'https://www.linkedin.com/in/nikita-gandhi' }
         }
     ]
