@@ -27,7 +27,7 @@ const SponsorUs: React.FC = () => {
     { id: 3, name: "imperial", image: "/images/Sponsors/imperialSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
 
     { id: 6, name: "Upthrust", image: "/images/Sponsors/upthrustSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gaming Partner" },
-    { id: 7, name: "Shardeum", image: "/images/Sponsors/shardeum.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
+    { id: 7, name: "Shardeum", image: "/images/Sponsors/Shardeum.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
   ];
 
   const pastSponsors: SponsorItem[] = [
