@@ -21,11 +21,10 @@ const SponsorUs: React.FC = () => {
 
   const ourSponsors: SponsorItem[] = [
     { id: 1, name: "aecc_global", image: "/images/Sponsors/aeccWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
-    { id: 4, name: "IMFS", image: "/images/Sponsors/imfsWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
-    { id: 5, name: "Sumago", image: "/images/Sponsors/sumagoSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
     { id: 2, name: "osen", image: "/images/Sponsors/osenSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
     { id: 3, name: "imperial", image: "/images/Sponsors/imperialSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
-
+    { id: 4, name: "IMFS", image: "/images/Sponsors/imfsWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
+    { id: 5, name: "Sumago", image: "/images/Sponsors/sumagoSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
     { id: 6, name: "Upthrust", image: "/images/Sponsors/upthrustSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gaming Partner" },
     { id: 7, name: "Shardeum", image: "/images/Sponsors/Shardeum.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
   ];
@@ -402,7 +401,7 @@ const SponsorUs: React.FC = () => {
             />
 
             <div className="cta-buttons">
-              <a className="cta-btn cta-primary" href="/docs/SponsorBrochure.pdf" download>
+              <a className="cta-btn cta-primary" href="/docs/sponsorBrochure.pdf" download>
                 Download Brochure
               </a>
               <a className="cta-btn cta-secondary" href="mailto:hackoverflow@mes.ac.in">

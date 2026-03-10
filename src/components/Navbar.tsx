@@ -263,7 +263,7 @@ const Navbar = () => {
 
           <a
             className="brochure"
-            href="/Docs/publicityBrochure.pdf"
+            href="/docs/publicityBrochure.pdf"
             download="HackOverflow Brochure.pdf"
             target="_blank"
             rel="noopener noreferrer"

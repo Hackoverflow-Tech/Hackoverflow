@@ -50,8 +50,8 @@ const Schedule = () => {
     3: [
       { time: "7:00 AM - 8:00 AM", event: "Project & Code Submission", icon: "📤", type: "submission" },
       { time: "8:00 AM - 9:00 AM", event: "Breakfast", icon: "☕", type: "break" },
-      { time: "9:00 AM - 11:00 PM", event: "Judging Round 3", icon: "⚖️", type: "judging" },
-      { time: "11:30 PM - 1:00 PM", event: "Lunch", icon: "🍽️", type: "break" },
+      { time: "9:00 AM - 11:00 AM", event: "Judging Round 3", icon: "⚖️", type: "judging" },
+      { time: "11:30 AM - 1:00 PM", event: "Lunch", icon: "🍽️", type: "break" },
       { time: "1:00 PM - 3:00 PM", event: "Final Evaluation", icon: "🏆", type: "ceremony" },
       { time: "3:30 PM - 5:00 PM", event: "Closing Ceremony", icon: "🎉", type: "ceremony" },
       { time: "5:00 PM - 5:30 PM", event: "Certificate Distribution", icon: "📜", type: "certificate" },

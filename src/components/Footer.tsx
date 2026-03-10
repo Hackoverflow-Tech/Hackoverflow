@@ -52,8 +52,8 @@ const Footer = () => {
 
   const resources = [
     { name: "Publicity Brochure", file: "HO_4.0_Brochure.pdf", path: "/docs/publicityBrochure.pdf" },
-    { name: "Sponsorship Brochure", file: "HO_4.0_Sponsorship_Brochure.pdf", path: "/docs/SponsorshipBrochure.pdf" },
-    { name: "Code of Conduct", file: "Code_of_Conduct.pdf", path: "/docs/COC.pdf" }
+    { name: "Sponsorship Brochure", file: "HO_4.0_Sponsorship_Brochure.pdf", path: "/docs/sponsorBrochure.pdf" },
+    { name: "Code of Conduct", file: "Code_of_Conduct.pdf", path: "/docs/coc.pdf" }
   ];
 
   return (
