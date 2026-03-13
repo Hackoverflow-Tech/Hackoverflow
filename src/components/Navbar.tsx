@@ -12,7 +12,8 @@ const navLinks = [
   { id: "schedule", label: "Schedule", type: "scroll" },
   { id: "teams", label: "Team", type: "scroll" },
   { id: "about", label: "About", type: "scroll" },
-  { id: "/Events", label: "Events", type: "route" },
+  { id: "/events", label: "Events", type: "route" },
+  { id: "/blogs", label: "Blogs", type: "route" },
 ];
 
 const Navbar = () => {
