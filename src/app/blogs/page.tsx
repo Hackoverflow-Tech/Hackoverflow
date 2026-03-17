@@ -38,7 +38,7 @@ export default function Blogs() {
             category: "Global Education",
             title: "Hackathons: Where Future Engineers Begin Building Their Story",
             excerpt: "Why events like HackOverflow 4.0 matter for students planning an MS abroad.",
-            image: "/images/Events/studyabroad.jpeg",
+            image: "/images/blogs/Sponsor event.PNG",
             content: (
                 <div className="space-y-8 text-gray-300 leading-relaxed text-lg">
                     <section>
@@ -146,7 +146,7 @@ export default function Blogs() {
                     <footer className="pt-10 border-t border-white/10">
                         <p className="text-gray-400 text-sm">Presented by <strong>IMFS</strong>, India’s most trusted study abroad guide since 1997</p>
                         <div className="mt-6">
-                           <Link href="https://www.imfs.co.in" className="text-orange-500 font-bold hover:underline italic">Visit www.imfs.co.in for more insights.</Link>
+                            <Link href="https://www.imfs.co.in" className="text-orange-500 font-bold hover:underline italic">Visit www.imfs.co.in for more insights.</Link>
                         </div>
                     </footer>
                 </div>
@@ -173,14 +173,14 @@ export default function Blogs() {
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight">
                             {selectedBlog.title}
                         </h1>
-                        
+
                         <div className="flex items-center gap-4 py-8 border-y border-white/10 mb-12 relative overflow-hidden">
                             <div className="w-14 h-14 rounded-full bg-orange-500/20 flex items-center justify-center border-2 border-orange-400 p-2 shadow-[0_0_20px_rgba(249,115,22,0.3)]">
-                                <Image 
-                                    src="/images/Sponsors/imfsWhite.png" 
-                                    alt="IMFS Logo" 
-                                    width={40} 
-                                    height={40} 
+                                <Image
+                                    src="/images/Sponsors/imfsWhite.png"
+                                    alt="IMFS Logo"
+                                    width={40}
+                                    height={40}
                                     className="object-contain"
                                 />
                             </div>
@@ -242,11 +242,11 @@ export default function Blogs() {
                                     </span>
                                 </div>
                                 <div className="absolute top-6 right-6 w-12 h-12 bg-black/40 backdrop-blur-md rounded-xl p-2 border border-white/10 flex items-center justify-center">
-                                    <Image 
-                                        src="/images/Sponsors/imfsWhite.png" 
-                                        alt="IMFS" 
-                                        width={30} 
-                                        height={30} 
+                                    <Image
+                                        src="/images/Sponsors/imfsWhite.png"
+                                        alt="IMFS"
+                                        width={30}
+                                        height={30}
                                         className="object-contain"
                                     />
                                 </div>

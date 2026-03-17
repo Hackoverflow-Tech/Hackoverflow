@@ -19,7 +19,6 @@ export default function Home() {
   return (
     <>
       <section id="home">
-
         <Hero />
       </section>
 
@@ -44,7 +43,6 @@ export default function Home() {
 
       <KeyDates />
 
-
       <section id="theme">
         <Theme />
       </section>
@@ -60,6 +58,7 @@ export default function Home() {
       <section id="faq">
         <FAQ />
       </section>
+
       <section id="about">
         <About />
       </section>
