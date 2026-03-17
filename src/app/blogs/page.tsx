@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import SectionHeader from "@/components/SectionHeader";
 import Link from "next/link";
@@ -16,15 +16,6 @@ interface BlogType {
     image: string;
     content: React.ReactNode;
 }
-
-const Info = ({ label, value }: { label: string; value: string }) => (
-    <div className="bg-[#111] border border-orange-500/20 rounded-2xl p-6">
-        <p className="text-orange-400 text-sm mb-2 uppercase tracking-wide">
-            {label}
-        </p>
-        <p className="text-xl font-semibold text-white">{value}</p>
-    </div>
-);
 
 export default function Blogs() {
     const [selectedBlog, setSelectedBlog] = useState<BlogType | null>(null);
@@ -49,7 +40,7 @@ export default function Blogs() {
                             Students were gathered in small teams around their laptops. One group debated the architecture of their system, while another tested whether their algorithm could process data more efficiently. A whiteboard nearby carried layers of diagrams, each representing a new attempt to refine an idea.
                         </p>
                         <p className="text-xl italic border-l-4 border-orange-500 pl-6 my-8 text-white bg-white/5 py-4 rounded-r-xl">
-                            "The energy in the room was unmistakable. Students were no longer simply studying technology. They were using it to build something new."
+                            &quot;The energy in the room was unmistakable. Students were no longer simply studying technology. They were using it to build something new.&quot;
                         </p>
                         <p>
                             Events like this are increasingly supported through collaborations between institutions. HackOverflow 4.0, for example, benefited from academic engagement from <strong>Binghamton University (SUNY)</strong> and support from <strong>IMFS</strong>, reflecting a growing effort to connect Indian students with the innovation-driven environments that are common in global universities.
