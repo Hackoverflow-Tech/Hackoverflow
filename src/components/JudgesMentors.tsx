@@ -3,139 +3,140 @@
 import Image from 'next/image'
 import { Linkedin } from 'lucide-react'
 import { useEffect } from 'react'
+import SectionHeader from './SectionHeader'
 
 interface TeamMember {
-    id: number
-    name: string
-    role: string
-    description: string
-    image: string
-    socials?: {
-        linkedin?: string
-    }
+  id: number
+  name: string
+  role: string
+  description: string
+  image: string
+  socials?: {
+    linkedin?: string
+  }
 }
 
 export default function JudgesMentors() {
 
-    useEffect(() => {
-        const cards = document.querySelectorAll(".team-card")
+  useEffect(() => {
+    const cards = document.querySelectorAll(".team-card")
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show-card")
-                }
-            })
-        }, { threshold: 0.2 })
-
-        cards.forEach(card => observer.observe(card))
-    }, [])
-
-    const judges: TeamMember[] = [
-        {
-            id: 1,
-            name: 'PRASAD SAWANT',
-            role: 'Judge',
-            description: "Former Co-Founder, Letsupgrade Lead AI Mumbai",
-            image: '/images/judges&Mentor/judges.png',
-            socials: { linkedin: 'https://www.linkedin.com/in/prasadsawant' }
-        },
-        {
-            id: 2,
-            name: 'ANAND MEHTA',
-            role: 'Judge',
-            description: 'Senior Specialist Finops, NASDAQ AWS Community Builder',
-            image: '/images/judges&Mentor/Judges2.png',
-            socials: { linkedin: 'https://www.linkedin.com/in/anandmehta' }
-        },
-        {
-            id: 3,
-            name: 'VIVEK YADAV',
-            role: 'Judge',
-            description: 'Google Developer Expert (Flutter and Dart)',
-            image: '/images/judges&Mentor/judges3.png',
-            socials: { linkedin: 'https://www.linkedin.com/in/viveky' }
-        },
-        {
-            id: 4,
-            name: 'NIKITA GANDHI',
-            role: 'Judge',
-            description: 'Technical Program Manager, Google',
-            image: '/images/judges&Mentor/Judges4.png',
-            socials: { linkedin: 'https://www.linkedin.com/in/nikita-gandhi' }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show-card")
         }
-    ]
+      })
+    }, { threshold: 0.2 })
 
-    const mentors: TeamMember[] = [
-        {
-            id: 1,
-            name: 'Vinayak Sawant',
-            role: 'Mentor',
-            description: 'Technical Head Of Hackoverflow 3.0',
-            image: '/images/judges&Mentor/Mentor1.jpeg',
-            socials: { linkedin: 'https://www.linkedin.com/in/vinayaksawant' }
-        },
-        {
-            id: 2,
-            name: 'Vedansh Goyal',
-            role: 'Mentor',
-            description: 'TECHhelp4U Community Founder',
-            image: '/images/judges&Mentor/Mentor2.png',
-            socials: { linkedin: 'https://www.linkedin.com/in/vedansh-goyal' }
-        },
-        {
-            id: 3,
-            name: 'Swapnil Chavan',
-            role: 'Mentor',
-            description: 'CSI Developer Head',
-            image: '/images/judges&Mentor/Mentor3.png',
-            socials: { linkedin: 'https://www.linkedin.com/in/swapnil-chavan' }
-        },
-        {
-            id: 4,
-            name: 'Nirav Thakur',
-            role: 'Mentor',
-            description: 'Freelancer',
-            image: '/images/judges&Mentor/Mentor4.png',
-            socials: { linkedin: 'https://www.linkedin.com/in/niravcanv' }
-        }
-    ]
+    cards.forEach(card => observer.observe(card))
+  }, [])
 
-    const TeamCard = ({ member }: { member: TeamMember }) => (
-        <div className="team-card">
+  const judges: TeamMember[] = [
+    {
+      id: 1,
+      name: 'PRASAD SAWANT',
+      role: 'Judge',
+      description: "Former Co-Founder, Letsupgrade Lead AI Mumbai",
+      image: '/images/judges&Mentor/judges.png',
+      socials: { linkedin: 'https://www.linkedin.com/in/prasadsawant' }
+    },
+    {
+      id: 2,
+      name: 'ANAND MEHTA',
+      role: 'Judge',
+      description: 'Senior Specialist Finops, NASDAQ AWS Community Builder',
+      image: '/images/judges&Mentor/Judges2.png',
+      socials: { linkedin: 'https://www.linkedin.com/in/anandmehta' }
+    },
+    // {
+    //     id: 3,
+    //     name: 'VIVEK YADAV',
+    //     role: 'Judge',
+    //     description: 'Google Developer Expert (Flutter and Dart)',
+    //     image: '/images/judges&Mentor/judges3.png',
+    //     socials: { linkedin: 'https://www.linkedin.com/in/viveky' }
+    // },
+    {
+      id: 3,
+      name: 'NIKITA GANDHI',
+      role: 'Judge',
+      description: 'Technical Program Manager, Google',
+      image: '/images/judges&Mentor/Judges4.png',
+      socials: { linkedin: 'https://www.linkedin.com/in/nikita-gandhi' }
+    }
+  ]
 
-            <div className="team-avatar">
-                <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="team-avatar-img"
-                />
-            </div>
+  const mentors: TeamMember[] = [
+    {
+      id: 1,
+      name: 'Vinayak Sawant',
+      role: 'Mentor',
+      description: 'Technical Head Of Hackoverflow 3.0',
+      image: '/images/judges&Mentor/Mentor1.jpeg',
+      socials: { linkedin: 'https://www.linkedin.com/in/vinayaksawant' }
+    },
+    {
+      id: 2,
+      name: 'Vedansh Goyal',
+      role: 'Mentor',
+      description: 'TECHhelp4U Community Founder',
+      image: '/images/judges&Mentor/Mentor2.png',
+      socials: { linkedin: 'https://www.linkedin.com/in/vedansh-goyal' }
+    },
+    {
+      id: 3,
+      name: 'Swapnil Chavan',
+      role: 'Mentor',
+      description: 'CSI Developer Head',
+      image: '/images/judges&Mentor/Mentor3.png',
+      socials: { linkedin: 'https://www.linkedin.com/in/swapnil-chavan' }
+    },
+    {
+      id: 4,
+      name: 'Nirav Thakur',
+      role: 'Mentor',
+      description: 'Freelancer',
+      image: '/images/judges&Mentor/Mentor4.png',
+      socials: { linkedin: 'https://www.linkedin.com/in/niravcanv' }
+    }
+  ]
 
-            <h3 className="team-name">{member.name}</h3>
-            <p className="team-role">{member.role}</p>
-            <p className="team-bio">{member.description}</p>
+  const TeamCard = ({ member }: { member: TeamMember }) => (
+    <div className="team-card">
 
-            {member.socials?.linkedin && (
-                <div className="team-socials">
-                    <a
-                        href={member.socials.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="social-link"
-                    >
-                        <Linkedin size={18} />
-                    </a>
-                </div>
-            )}
+      <div className="team-avatar">
+        <Image
+          src={member.image}
+          alt={member.name}
+          fill
+          className="team-avatar-img"
+        />
+      </div>
 
+      <h3 className="team-name">{member.name}</h3>
+      <p className="team-role">{member.role}</p>
+      <p className="team-bio">{member.description}</p>
+
+      {member.socials?.linkedin && (
+        <div className="team-socials">
+          <a
+            href={member.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <Linkedin size={18} />
+          </a>
         </div>
-    )
+      )}
 
-    return (
-        <>
-            <style>{`
+    </div>
+  )
+
+  return (
+    <>
+      <style>{`
 
       .team-section{
         padding:120px 0;
@@ -148,63 +149,42 @@ export default function JudgesMentors() {
         padding:0 2rem;
       }
 
-      /* MAIN HEADING */
-
-      .main-heading{
-        text-align:center;
-        margin-bottom:80px;
-      }
-
-      .main-heading h1{
-        font-size:48px;
-        font-weight:800;
-        letter-spacing:1px;
-        background:linear-gradient(90deg,#ffffff,#f97316,#f43f5e);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-size:200%;
-    animation: gradientMove 6s linear infinite;
-    }
-
-      @keyframes gradientMove{
-        0%{background-position:0%}
-        100%{background-position:200%}
-      }
-
-      .section-head{
-        text-align:center;
-        margin-bottom:3rem;
-      }
-
-    .section-title{
-    font-size:48px;
-    font-weight:800;
-    background:linear-gradient(90deg,#ffffff,#f97316,#f43f5e);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-size:200%;
-    animation: gradientMove 6s linear infinite;
-    }
-
-      .section-divider{
-        width:70px;
-        height:3px;
-        margin:10px auto 0;
-        background:linear-gradient(135deg,#e75829,#F2A03D);
-        border-radius:10px;
-      }
 
       .judges-grid,
-      .mentors-grid{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        gap:2rem;
-        margin-bottom:80px;
+      .mentors-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 80px;
+      }
+
+      /* Section Head */
+      .section-head {
+        text-align: center;
+        margin-bottom: 1.8rem;
+        margin-top: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0.8rem;
+      }
+
+      .section-divider {
+        width: 60px;
+        height: 3px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #e75829, #F2A03D);
+        border-radius: 10px;
       }
 
       /* CARD */
 
       .team-card{
+        width: 280px;
         min-height:340px;
         display:flex;
         flex-direction:column;
@@ -311,35 +291,37 @@ export default function JudgesMentors() {
 
       `}</style>
 
-            <section className="team-section">
-                <div className="team-container">
+      <section className="team-section">
+        <div className="team-container">
 
-                    <div className="main-heading">
-                        <h1>Judges & Mentors</h1>
-                    </div>
+          <SectionHeader
+            badge="Experts"
+            title="Judges &"
+            gradientText="Mentors"
+          />
 
-                    {/* Judges */}
-                    <div className="section-head">
-                        <h1 className="section-title">Judges</h1>
-                        <div className="section-divider"></div>
-                    </div>
+          {/* Judges */}
+          <div className="section-head">
+            <div className="section-title">Judges</div>
+            <div className="section-divider" />
+          </div>
 
-                    <div className="judges-grid">
-                        {judges.map(j => <TeamCard key={j.id} member={j} />)}
-                    </div>
+          <div className="judges-grid">
+            {judges.map(j => <TeamCard key={j.id} member={j} />)}
+          </div>
 
-                    {/* Mentors */}
-                    <div className="section-head">
-                        <h2 className="section-title">Mentors</h2>
-                        <div className="section-divider"></div>
-                    </div>
+          {/* Mentors */}
+          <div className="section-head">
+            <div className="section-title">Mentors</div>
+            <div className="section-divider" />
+          </div>
 
-                    <div className="mentors-grid">
-                        {mentors.map(m => <TeamCard key={m.id} member={m} />)}
-                    </div>
+          <div className="mentors-grid">
+            {mentors.map(m => <TeamCard key={m.id} member={m} />)}
+          </div>
 
-                </div>
-            </section>
-        </>
-    )
+        </div>
+      </section>
+    </>
+  )
 }
