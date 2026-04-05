@@ -37,6 +37,7 @@ export default function Home() {
       <section id="schedule">
         <Schedule />
       </section>
+
       <section id="judges">
         <JudgesMentors />
       </section>

@@ -27,14 +27,13 @@ const SponsorUs: React.FC = () => {
     { id: 5, name: "Sumago", image: "/images/Sponsors/sumagoSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
     { id: 6, name: "Studyin", image: "/images/Sponsors/studyin.png", link: "#", effect: "fade-up", SubSponsorcategory: "Silver Sponsor" },
     { id: 7, name: "Upthrust", image: "/images/Sponsors/upthrustSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gaming Partner" },
-    { id: 8, name: "Shardeum", image: "/images/Sponsors/Shardeum.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
-    { id: 9, name: "Besides", image: "/images/Sponsors/BSidesMumbaiWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Merchandise Partner" },
-    { id: 10, name: "Sakal", image: "/images/Sponsors/sakal.png", link: "#", effect: "fade-up", SubSponsorcategory: "Media Partner" },
-    { id: 11, name: "Reva Technologies", image: "/images/Sponsors/reva.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
-    { id: 12, name: "Tech help 4 u", image: "/images/Sponsors/techhelp.png", link: "#", effect: "fade-up", SubSponsorcategory: "Community Partner" },
-    { id: 13, name: "A1 Bites", image: "/images/Sponsors/a1bites.png", link: "#", effect: "fade-up", SubSponsorcategory: "Food Partner" },
-    { id: 14, name: "Languify", image: "/images/Sponsors/Languify.png", link: "#", effect: "fade-up", SubSponsorcategory: "Education Partner" },
-    { id: 15, name: "Golden Oriole Education", image: "/images/Sponsors/goldenoriolenew.png", link: "#", effect: "fade-up", SubSponsorcategory: "General Sponsor" },
+    { id: 8, name: "Besides", image: "/images/Sponsors/BSidesMumbaiWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Merchandise Partner" },
+    { id: 9, name: "Sakal", image: "/images/Sponsors/sakal.png", link: "#", effect: "fade-up", SubSponsorcategory: "Media Partner" },
+    { id: 10, name: "Reva Technologies", image: "/images/Sponsors/reva.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
+    { id: 11, name: "Tech help 4 u", image: "/images/Sponsors/techhelp.png", link: "#", effect: "fade-up", SubSponsorcategory: "Community Partner" },
+    { id: 12, name: "A1 Bites", image: "/images/Sponsors/a1bites.png", link: "#", effect: "fade-up", SubSponsorcategory: "Food Partner" },
+    { id: 13, name: "Languify", image: "/images/Sponsors/Languify.png", link: "#", effect: "fade-up", SubSponsorcategory: "Education Partner" },
+    { id: 14, name: "Golden Oriole Education", image: "/images/Sponsors/goldenoriolenew.png", link: "#", effect: "fade-up", SubSponsorcategory: "General Sponsor" },
   ];
 
   const pastSponsors: SponsorItem[] = [
