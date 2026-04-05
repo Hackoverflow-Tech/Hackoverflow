@@ -137,5 +137,46 @@ export const blogs: BlogType[] = [
                 </footer>
             </div>
         )
+    },
+    {
+        id: 2,
+        slug: "osen-gold-sponsor",
+        date: "April 5, 2026",
+        author: "HackOverflow Team",
+        authorTitle: "Organizing Committee",
+        category: "Sponsors & Partners",
+        title: "Welcoming OSEN: Gold Sponsor of HackOverflow 4.0",
+        excerpt: "Learn more about our Gold Sponsor, OSEN, and check out their presentation.",
+        image: "/images/Sponsors/osenSponsor.png",
+        content: (
+            <div className="space-y-8 text-gray-300 leading-relaxed text-lg">
+                <section>
+                    <p>
+                        We are thrilled to announce that <strong>OSEN</strong> has joined us as a <strong>Gold Sponsor</strong> for <strong>HackOverflow 4.0</strong>! Their support is instrumental in making this hackathon a massive success and providing our participants with incredible opportunities to build, learn, and grow.
+                    </p>
+                    <p className="mt-4">
+                        As a Gold Sponsor, OSEN shares our vision of fostering innovation and empowering the next generation of engineers and tech enthusiasts. We encourage all participants to explore what OSEN has to offer and interact with their representatives during the event.
+                    </p>
+                </section>
+                
+                <section className="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span className="text-orange-500 text-4xl">📄</span> OSEN Presentation
+                    </h2>
+                    <p className="mb-6">
+                        To learn more about OSEN, their initiatives, and their role in the tech ecosystem, we invite you to view their official presentation document provided for our hackathon participants.
+                    </p>
+                    <Link 
+                        href="/Docs/osen-ppt.pdf" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform"
+                    >
+                        <span>View OSEN Presentation (PDF)</span>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                    </Link>
+                </section>
+            </div>
+        )
     }
 ];
