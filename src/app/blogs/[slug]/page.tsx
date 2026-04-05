@@ -38,8 +38,8 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
                     <div className="flex items-center gap-4 py-8 border-y border-white/10 mb-12 relative overflow-hidden">
                         <div className="w-14 h-14 rounded-full bg-orange-500/20 flex items-center justify-center border-2 border-orange-400 p-2 shadow-[0_0_20px_rgba(249,115,22,0.3)]">
                             <Image
-                                src="/images/Sponsors/imfsWhite.png"
-                                alt="IMFS Logo"
+                                src={blog.authorLogo || "/images/Sponsors/osenSponsor.png"}
+                                alt={`${blog.author} Logo`}
                                 width={40}
                                 height={40}
                                 className="object-contain"

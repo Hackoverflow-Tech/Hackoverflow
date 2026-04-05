@@ -10,8 +10,8 @@ const navLinks = [
   { id: "gallery", label: "Gallery", type: "scroll" },
   { id: "stats", label: "Statistics", type: "scroll" },
   { id: "schedule", label: "Schedule", type: "scroll" },
+  { id: "sponsors", label: "Sponsors", type: "scroll" },
   { id: "teams", label: "Team", type: "scroll" },
-  { id: "about", label: "About", type: "scroll" },
   { id: "/events", label: "Events", type: "route" },
   { id: "/blogs", label: "Blogs", type: "route" },
 ];

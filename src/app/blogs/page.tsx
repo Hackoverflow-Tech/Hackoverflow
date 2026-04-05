@@ -36,8 +36,8 @@ export default function Blogs() {
                                 </div>
                                 <div className="absolute top-6 right-6 w-12 h-12 bg-black/40 backdrop-blur-md rounded-xl p-2 border border-white/10 flex items-center justify-center">
                                     <Image
-                                        src="/images/Sponsors/imfsWhite.png"
-                                        alt="IMFS"
+                                        src={blog.authorLogo || "/images/Sponsors/osenSponsor.png"}
+                                        alt={blog.author}
                                         width={30}
                                         height={30}
                                         className="object-contain"
